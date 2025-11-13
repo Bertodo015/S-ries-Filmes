@@ -1,14 +1,14 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import PerfilView from './pages/Perfil.vue'
 import LoginView from './pages/Login.vue'
-import ListProdutosView from './pages/ListaProdutos.vue'
-import CadastrarProdutosView from './pages/CadastrarProduto.vue'
+import ListFilmesView from './pages/ListaFilmes.vue'
+import CadastrarFilmesView from './pages/CadastrarProduto.vue'
 
 const routes = [
     { path: '/', component: LoginView },
     { path: '/perfil', component: PerfilView },
-    { path: '/produtos', component: ListProdutosView },
-    { path: '/cadastrar', component: CadastrarProdutosView }
+    { path: '/filmes', component: ListFilmesView },
+    { path: '/cadastrar', component: CadastrarFilmesView }
 ]
 const router = createRouter({
     history: createWebHistory(),

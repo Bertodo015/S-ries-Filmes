@@ -6,16 +6,17 @@ import { useRouter } from 'vue-router'
 
 
 const nome = ref('')
-const preco = ref(0.0)
-const URL_API = 'http://localhost:3000'
+const lancamento = ref(0)
+//const URL_API = 'http://localhost:3000'
+const URL_API = 'mongodb+srv://bertolomeu:BERTSI26@cluster0.frldmhm.mongodb.net/?appName=Cluster0'
 const router = useRouter()
 
-const cadastrarProduto = () => {
-  const novoProduto = { nome: nome.value, preco: preco.value }
+const cadastrarFilme = () => {
+  const novoFilme = { nome: nome.value, lancamento: lancamento.value }
   
-  axios.post(URL_API + '/produtos', novoProduto)
+  axios.post(URL_API + '/filmes', novoFilme)
   .then((resposta) => {
-    if(resposta.data) router.push('/produtos')
+    if(resposta.data) router.push('/filmes')
   })
   .catch((erro) => {
     console.log(erro)
@@ -35,14 +36,15 @@ const nomeRegras = [
   <div class="d-flex ga-0">
     <Menu></Menu>
     <v-card title>
-      <h1>Página de cadastro de produtos</h1>
+      <h1>Página de cadastro de filmes</h1>
       <v-sheet class="mx-auto mt-16 px-2 py-3" width="1000px">
         <v-form @submit.prevent fast-fail>
-          <v-text-field v-model="nome" type="text" label="Nome do produto" color="primary" :rules="nomeRegras"></v-text-field>
+          <v-text-field v-model="nome" type="text" label="Nome do filme" color="primary" :rules="nomeRegras"></v-text-field>
 
-          <v-number-input v-model="preco" label="Preço do produto" color="primary" :precision="2" :min="0"></v-number-input>
+          <!--1888, pois foi a data do filme mais antigo do mundo-->
+          <v-number-input v-model="lancamento" label="Ano de lançamento" color="primary" :min="1888" :max="2100"></v-number-input>
 
-          <v-btn @click="cadastrarProduto" color="success">Cadastrar</v-btn>
+          <v-btn @click="cadastrarFilme" color="success">Cadastrar</v-btn>
 
         </v-form>
       </v-sheet>

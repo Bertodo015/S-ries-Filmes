@@ -17,14 +17,14 @@
         ></v-list-item>
         <v-list-item
           prepend-icon="mdi-list-box-outline"
-          title="Listar Produtos"
-          value="listaProdutos"
-          to="/produtos"
+          title="Listar Filmes"
+          value="listaFilmes"
+          to="/filmes"
         ></v-list-item>
         <v-list-item
           prepend-icon="mdi-plus"
-          title="Cadastrar Produto"
-          value="cadastrarProdutos"
+          title="Cadastrar Filmes"
+          value="cadastrarFilmes"
           to="/cadastrar"
         ></v-list-item>
         <v-list-item
